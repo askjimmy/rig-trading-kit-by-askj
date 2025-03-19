@@ -1,0 +1,41 @@
+
+{
+    "is_backtest_only":true,
+    "agent_secret": {
+        "alphavantage_api_key": "YOUR_API_KEY",
+        "ai": {
+          "prompt": {
+            "provider": "anthropic",
+            "model": "claude-3-5-sonnet-20241022",
+            "api_key": "YOUR_API_KEY"
+          },
+          "embedding": {
+            "provider": "gemini",
+            "model": "EMBEDDING_001",
+            "api_key": "YOUR_API_KEY"
+          }
+        }
+      },
+    "agent_character":{
+        "agent_name": "daily SOL trader with ema&rsi pullback entry",
+        "description": "Trade sol with ema trend filter and rsi pullback entry",
+        "symbol": "SOL",
+        "timeframe": "1d",
+        "strategy_id": "342fe906-a923-4b5e-9c02-4fc56bb454fc",
+        "back_step": 5,
+        "placeholders": {
+        "trader_preference": "As a moderate trader, you aim for a balance between risk and reward. You may consider longer holding periods, not rushing to buy and sell, and placing greater emphasis on researching the crypto's fundamentals and technical analysis.",
+        "usage_askjimmy_strategy": "Only execute trades that align with both the signal of ASKJ strategy and your own analysis. \n                 Consider BUY when only the ASKJ strategy have a long position and your analysis indicates a bullish market. \n                 Consider SELL when only the ASKJ strategy have a short position and your analysis indicates a bearish market. \n                 Do not open a position if the ASKJ strategy's signal contradicts your analysis. In such cases, ignore the signal.",
+        "decision_prompt_analysis": "You should analyze step-by-step how the above information may affect the results of your decisions.\n                 You need to follow the rules as follows and do not miss any of them:\n                1. When analyzing the summary of market intelligence, you should determine whether the market\n                intelligence are positive, negative or neutral.\n                - If the overall is neurtal, your decision should pay less attention to the summary of market\n                intelligence.\n                - If the overall is positive or negative. you should give a decision result based on this.\n                2. When analyzing the analysis of price movements, you should determine whether the future trend is\n                bullish or bearish and reflect on the lessons you've learned.\n                - BUY means you open long position. SELL means you open short position. EXIT means you close position. \n                        HOLD means you keep position when you have opened position or don't open position when you don't have position.\n                - You can consider a BUY or a SELL only when you don't have opened position.\n                - You can consider a HOLD or a EXIT only when you have opened position.\n                - If the future trend is bullish and market intelligence is positive, you should consider a BUY instead of a HOLD to increase your\n                profits.\n                - If the future trend is bearish and market intelligence is negative, you should consider a SELL instead of a HOLD to increase your profits.\n                        You are trading for perp. so you can SELL even you don't have position.\n                - Please consider EXIT only when position has profit or current floating loss is more than 10% or market intelligence do against current position. \n                - If the opened POSITION meets the take profit or stop loss criteria, you should consider an EXIT to protect profit or prevent further losses.  \n                General take profit and stoploss criteria are 10% of balance.\n                - You should provide your decision result based on the analysis of price movements.\n                3. When analyzing the analysis of the past trading decisions, you should reflect on the lessons\n                you've learned.\n                - You should provide your decision result based on the reflection of the past trading decisions.\n                4. When analyzing the professional investment guidances, you should determine whether the guidances\n                show the trend is bullish or bearish. And provide your decision results.\n                5. When analyzing the decisions and explanations of some trading strategies, you should consider the\n                results and explanations of their decisions together. And provide your decision results.\n                6. When providing the final decision, you should pay less attention to the market intelligence whose\n                sentiment is neutral or unrelated.\n                7. When providing the final decision, you should pay more attention to the market intelligence which\n                will cause an immediate impact on the price.\n                8. When providing the final decision, if the overall market intelligence is mixed up, you should pay\n                more attention to the professional investment guidances, and consider which guidance is worthy trusting\n                based on historical price.\n                9. Before making a decision, you must check the current situation. \n                10. Combining the results of all the above analysis and decisions, you should determine whether the\n                current situation is suitable for BUY, SELL, HOLD, EXIT. And provide your final decision results."
+        },
+        "short_term_past_date_range": 1,
+        "medium_term_past_date_range": 7,
+        "long_term_past_date_range": 14,
+        "short_term_next_date_range": 1,
+        "medium_term_next_date_range": 7,
+        "long_term_next_date_range": 14,
+        "previous_action_look_back_days": 14,
+        "top_k": 5
+
+    }
+  }

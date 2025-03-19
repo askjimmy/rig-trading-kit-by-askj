@@ -1,0 +1,109 @@
+[package]
+name = "rig-trading-kit-by-askj"
+version = "0.0.1"
+authors = ["AskJimmy"]
+autobins = false
+edition = '2021'
+
+[[example]]
+name = "chat_agent"
+path = "examples/agents/chat_agent.rs"
+
+[[example]]
+name = "autonomous_agent"
+path = "examples/agents/autonomous_agent.rs"
+
+[[example]]
+name = "predefined_placeholder"
+path = "examples/askj/predefined_placeholder.rs"
+
+[[example]]
+name = "deploy"
+path = "examples/askj/deploy.rs"
+
+[[example]]
+name = "backtest"
+path = "examples/askj/backtest.rs"
+
+[[example]]
+name = "delete_agent"
+path = "examples/askj/delete_agent.rs"
+
+[[example]]
+name = "update_agent"
+path = "examples/askj/update_agent.rs"
+
+[[example]]
+name = "list_agent"
+path = "examples/askj/list_agent.rs"
+
+[[example]]
+name = "monitor_agent"
+path = "examples/askj/monitor_agent.rs"
+
+[[example]]
+name = "last_trade"
+path = "examples/askj/last_trade.rs"
+
+[[example]]
+name = "assign_delegator"
+path = "examples/askj/assign_delegator.rs"
+
+[[example]]
+name = "assign_vault"
+path = "examples/askj/assign_vault.rs"
+
+[[example]]
+name = "drift_deposit"
+path = "examples/drift_rs/drift_deposit.rs"
+
+[[example]]
+name = "perp_trading_agent_random"
+path = "examples/agents/perp_trading_agent_random.rs"
+
+[[example]]
+name = "perp_trading_agent_trailing_stop"
+path = "examples/agents/perp_trading_agent_trailing_stop.rs"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+anyhow = "1.0"
+csv = "1.1"
+chrono = "0.4"  # Add chrono for date handling
+rig-core = "0.9.0"
+serde_json = "1.0"
+thiserror = "1"
+tracing = "0.1"
+tracing-subscriber = "0.3.0"
+drift-rs = { git = "https://github.com/drift-labs/drift-rs", tag = "v1.0.0-alpha.11" }
+anchor-lang = { version = "0.30", features = ["derive"] }
+solana-sdk = "2.0"
+hex = "0.4"
+solana-client = "2"
+borsh = "0.10" 
+borsh-derive = "0.10"
+bincode = "1.3.3"
+bs58 = "0.5.1"
+rand = "0.8"
+axum = "0.7"
+hyper = { version = "1", features = ["server", "http1", "http2"] }
+hyper-rustls = "0.24"
+rustls = "0.21"
+tokio-rustls = "0.24"
+rustls-pemfile = "=2.2.0"
+hyper-util = { version = "0.1", features = ["server", "tokio"] }
+tokio-util = { version = "0.7", features = ["compat"] }
+tower = "0.5"
+uuid = { version = "1", features = ["v4"] }
+
+lazy_static = "1.4"
+
+regex = "1.10"
+
+
+reqwest = { version = "0.11", features = ["json"] }
+dotenv = "*"
+clap = { version = "3.0", features = ["derive"] }
+
+spl-associated-token-account = "*"
